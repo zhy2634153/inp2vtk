@@ -1,2 +1,2 @@
 # inp2vtk
-transfer abaqus inp format file to vtk format file
+Transfer abaqus inp format file to vtk format file
