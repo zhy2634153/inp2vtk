@@ -3,7 +3,7 @@
 
 import vtk
 
-filename = "Job-1-C3D20.vtk"
+filename = "data/Job-1-C3D20.vtk"
 # filename = "test2.vtk"
 # filename = "Hexahedron.vtk"
 

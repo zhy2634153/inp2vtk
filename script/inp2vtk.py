@@ -4,7 +4,7 @@
 import re
 import numpy as np
 
-inp_fname = "Job-1-C3D20.inp"
+inp_fname = "data/Job-1-C3D20.inp"
 vtk_fname = inp_fname[:-4]+".vtk"
 
 f_inp = open(inp_fname, 'r')
@@ -128,16 +128,18 @@ for i in range(4):
         cells_num, cells_total, cells_content, cell_types_num, cell_types_content = write_to_vtk(f_vtk, eles[i], cell_types[i], cell_nodes[i])
         CELLS_num += cells_num
         CELLS_total += cells_total
-        CELLS_content += cells_content.replace("\n\n", "\n")
+        # CELLS_content += cells_content.replace("\n\n", "\n")
+        CELLS_content += cells_content
         CELL_TYPES_num += cell_types_num
-        CELL_TYPES_content += cell_types_content.replace("\n\n", "\n")
+        # CELL_TYPES_content += cell_types_content.replace("\n\n", "\n")
+        CELL_TYPES_content += cell_types_content
 
 f_vtk.write("CELLS {} {}\n".format(CELLS_num, CELLS_total))
 f_vtk.write(CELLS_content)
 f_vtk.write("CELL_TYPES {}\n".format(CELL_TYPES_num))
 f_vtk.write(CELL_TYPES_content)
 
-# f_vtk.write("POINT_DATA {}\n".format(len(nodes)))
+f_vtk.write("POINT_DATA {}\n".format(len(nodes)))
 # f_vtk.write("SCALARS scalars double 1\n")
 # f_vtk.write("LOOKUP_TABLE default\n")
 # for i in range(len(nodes)):
