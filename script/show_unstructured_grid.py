@@ -20,6 +20,8 @@ mapper.SetInputConnection(reader.GetOutputPort())
 actor = vtk.vtkActor()
 actor.SetMapper(mapper)
 actor.GetProperty().SetColor(colors.GetColor3d("Green"))
+actor.GetProperty().EdgeVisibilityOn()
+actor.GetProperty().VertexVisibilityOn()
 
 ren = vtk.vtkRenderer()
 ren.AddActor(actor)
